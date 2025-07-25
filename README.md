@@ -16,3 +16,20 @@ python server.py
 ```
 
 Replace `dictionary.txt` with a larger word list for production.
+
+braille-autocorrect/
+│
+├─ braille.py          # chord ⇄ Braille logic
+├─ utils.py            # Levenshtein helper
+├─ autocorrect.py      # suggestion engine
+│
+├─ main.py             # CLI entry-point
+├─ server.py           # Flask web server
+│
+├─ dictionary.txt      # sample word list
+├─ requirements.txt    # Flask (plus Gunicorn optional)
+├─ README.md           # setup & deployment guide
+│
+└─ tests/              # pytest suites
+   ├─ test_braille.py
+   └─ test_autocorrect.py
