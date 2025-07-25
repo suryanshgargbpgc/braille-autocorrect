@@ -1,35 +1,53 @@
-
 # Braille Autocorrect and Suggestion System
 
-Minimal proof-of-concept for six-key QWERTY Braille input with autocorrect.
+A Django web application that provides real-time autocorrect and suggestions for Braille input using QWERTY keyboard format.
 
-## Quick CLI Test
-```bash
-python main.py "dk d k"   # -> cat
-```
+## Features
 
-## Web Demo
-```bash
-pip install -r requirements.txt
-python server.py
-# open http://localhost:5000
-```
+- **Real-time Suggestions**: Get instant suggestions as you type
+- **QWERTY Braille Input**: Use D, W, Q, K, O, P keys for Braille dots 1-6
+- **Smart Autocorrect**: Uses Levenshtein distance algorithm for accurate suggestions
+- **Learning System**: Improves suggestions based on user interactions
+- **Responsive Design**: Works on desktop and mobile devices
+- **Performance Optimized**: Fast response times for large dictionaries
 
-Replace `dictionary.txt` with a larger word list for production.
+## Key Mapping
 
-braille-autocorrect/
-│
-├─ braille.py          # chord ⇄ Braille logic
-├─ utils.py            # Levenshtein helper
-├─ autocorrect.py      # suggestion engine
-│
-├─ main.py             # CLI entry-point
-├─ server.py           # Flask web server
-│
-├─ dictionary.txt      # sample word list
-├─ requirements.txt    # Flask (plus Gunicorn optional)
-├─ README.md           # setup & deployment guide
-│
-└─ tests/              # pytest suites
-   ├─ test_braille.py
-   └─ test_autocorrect.py
+- **D** → Braille Dot 1
+- **W** → Braille Dot 2  
+- **Q** → Braille Dot 3
+- **K** → Braille Dot 4
+- **O** → Braille Dot 5
+- **P** → Braille Dot 6
+
+## Installation
+
+1. Clone the repository
+2. Install dependencies: `pip install -r requirements.txt`
+3. Run migrations: `python manage.py migrate`
+4. Start server: `python manage.py runserver`
+
+## Technology Stack
+
+- **Backend**: Django 4.2, Python
+- **Frontend**: HTML5, CSS3, JavaScript, Bootstrap 5
+- **Algorithm**: Levenshtein Distance for autocorrect
+- **Database**: SQLite (default), PostgreSQL ready
+
+## API Endpoints
+
+- `/` - Main interface
+- `/suggestions/` - Get autocorrect suggestions
+- `/convert/` - Convert Braille to text
+
+## Deployment Ready
+
+Configured for easy deployment with:
+- Gunicorn WSGI server
+- WhiteNoise for static files
+- Environment variable support
+- Database flexibility
+
+## Developer
+
+Created for Thinkerbell Labs Private Limited

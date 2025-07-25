@@ -1,0 +1,120 @@
+{% extends 'braille_app/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="fas fa-keyboard"></i> Braille Input (QWERTY Format)</h4>
+                <small class="text-muted">Use D, W, Q, K, O, P keys for Braille dots 1, 2, 3, 4, 5, 6</small>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="brailleInput" class="form-label">Enter Braille Text:</label>
+                    <textarea 
+                        id="brailleInput" 
+                        class="form-control" 
+                        rows="4" 
+                        placeholder="Type using D, W, Q, K, O, P keys for Braille input..."
+                        autocomplete="off"
+                    ></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <button id="convertBtn" class="btn btn-primary">
+                        <i class="fas fa-magic"></i> Convert to Text
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        <i class="fas fa-eraser"></i> Clear
+                    </button>
+                </div>
+
+                <div id="convertedText" class="alert alert-success" style="display: none;">
+                    <h6>Converted Text:</h6>
+                    <p id="convertedContent"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-lightbulb"></i> Real-time Suggestions</h5>
+            </div>
+            <div class="card-body">
+                <div id="suggestions" class="list-group">
+                    <div class="text-muted text-center">
+                        Start typing to see suggestions...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6><i class="fas fa-info-circle"></i> Braille Key Mapping</h6>
+            </div>
+            <div class="card-body">
+                <div class="braille-mapping">
+                    <div class="row">
+                        <div class="col-6">
+                            <small>
+                                <strong>D</strong> → Dot 1<br>
+                                <strong>W</strong> → Dot 2<br>
+                                <strong>Q</strong> → Dot 3<br>
+                            </small>
+                        </div>
+                        <div class="col-6">
+                            <small>
+                                <strong>K</strong> → Dot 4<br>
+                                <strong>O</strong> → Dot 5<br>
+                                <strong>P</strong> → Dot 6<br>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-chart-line"></i> System Statistics</h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <h3 id="totalWords" class="text-primary">0</h3>
+                            <p>Dictionary Words</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <h3 id="suggestionsCount" class="text-success">0</h3>
+                            <p>Suggestions Made</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <h3 id="accuracyRate" class="text-info">0%</h3>
+                            <p>Accuracy Rate</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <h3 id="responseTime" class="text-warning">0ms</h3>
+                            <p>Avg Response Time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
