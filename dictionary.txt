@@ -1,0 +1,12 @@
+cat
+car
+dog
+hello
+help
+held
+world
+braille
+autocorrect
+typing
+keyboard
+thinkerbell
